@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  post '/callback' => 'linebot#callback'
   
   root 'static_pages#top'
   get '/signup', to: 'users#new'
@@ -10,17 +9,11 @@ Rails.application.routes.draw do
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
-  post '/callback', to: 'linebot#callback'
-  
   resources :users do
     collection { post :import }
     member do
       get 'edit_basic_info'
       patch 'update_basic_info'
-      
-      get 'meals_input'    
-      
-      get 'workouts/workout'
       
       get 'workouts/bodypart_menu'
       get 'workouts/bodypart_menu_index'
@@ -40,13 +33,6 @@ Rails.application.routes.draw do
       end
     end
     resources :traning_menus do
-    end
-    
-    resources :meals do
-    end
-    resources :bodyweights do
-    end
-    resources :posts do
     end
   end
   
