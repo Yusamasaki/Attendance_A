@@ -17,6 +17,8 @@ gem 'jbuilder',     '~> 2.5'
 gem 'rounding'
 gem 'activerecord-import'
 gem 'rename'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3'
