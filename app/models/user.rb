@@ -15,8 +15,22 @@ class User < ApplicationRecord
                     uniqueness: true
   
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true, on: :facebook_login
       
+  #facebook_Login
+  def self.from_omniauth(auth)
+    user = User.where('email = ?', auth.info.email).first
+    if user.blank?
+       user = User.new
+    end
+    user.uid   = auth.uid
+    user.username  = auth.info.name
+    user.email = auth.info.email
+    user.oauth_token = auth.credentials.token
+    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    user
+  end
+  
   # 渡された文字列のハッシュ値を返します。
   def User.digest(string)
     cost = 
