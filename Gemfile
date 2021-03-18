@@ -19,6 +19,7 @@ gem 'activerecord-import'
 gem 'rename'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'sqlite3'
