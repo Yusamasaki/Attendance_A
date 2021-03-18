@@ -17,11 +17,6 @@ gem 'jbuilder',     '~> 2.5'
 gem 'rounding'
 gem 'activerecord-import'
 gem 'rename'
-gem 'ransack'
-gem 'lazy_high_charts'
-gem 'bootstrap_form', '~> 4.0'
-gem 'gon'
-gem 'line-bot-api'
 
 group :development, :test do
   gem 'sqlite3'
